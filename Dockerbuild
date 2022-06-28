@@ -1,0 +1,8 @@
+FROM node:latest
+
+RUN git clone https://github.com/JSDenton/testing-node-apps.git
+WORKDIR /testing-node-app/
+#RUN pwd
+#RUN ls
+RUN npm install
+RUN npm run build

@@ -1,0 +1,5 @@
+FROM builder:latest
+
+WORKDIR /testing_node_apps/
+
+CMD npm run start

@@ -1,0 +1,14 @@
+FROM ubuntu:latest
+
+ENV TZ=Europe/Warsaw
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt -y update && apt -y install git npm 
+RUN apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt -y install nodejs
+RUN git clone https://github.com/kentcdodds/testing-node-apps.git
+
+WORKDIR "/testing-node-apps"
+
+RUN	npm install
